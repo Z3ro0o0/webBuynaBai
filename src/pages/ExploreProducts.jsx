@@ -24,6 +24,21 @@ const UserProductsPage = () => {
     fetchProducts();
   }, []);
 
+    const handleDeleteProduct = async (productId) => {
+    try {
+      await http.delete(`products/${productId}`, {
+        headers: {
+          Authorization: `Token ${localStorage.getItem('token')}`,
+        },
+      });
+      // Remove the deleted product from the state
+      setProducts(products.filter(product => product.id !== productId));
+      console.log('Product deleted successfully');
+    } catch (error) {
+      console.error('Error deleting product:', error);
+    }
+  };
+
   return (
     <div style={styles.container}>
       <h1 style={styles.heading}>Your Products</h1>
@@ -41,6 +56,9 @@ const UserProductsPage = () => {
               <p style={styles.productStock}>Stock (Medium): {product.stock_medium_size}</p>
               <p style={styles.productStock}>Stock (Large): {product.stock_large_size}</p>
               <Link to={`/editproduct/${product.id}`} style={styles.editButton}>Edit Product</Link>
+              <li key={product.id}>
+                <button onClick={() => handleDeleteProduct(product.id)} style={styles.editButton}>Delete</button>
+              </li>
             </div>
           </div>
         ))}
