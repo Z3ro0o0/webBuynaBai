@@ -18,7 +18,7 @@ export default function Login() {
             });
             localStorage.setItem('token', response.data.auth_token);
             // Redirect to profile page or handle success as needed
-            window.location.href = '/explore/all';
+            window.location.href = '/explore/';
         } catch (error) {
             setError('Invalid email or password');
         }
