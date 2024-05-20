@@ -26,7 +26,7 @@ export default function Register() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await http.post('http://127.0.0.1:8000/api/v1/auth/users/', userData);
+            const response = await http.post('auth/users/', userData);
             console.log('User created successfully:', response.data);
             setUserData({
                 first_name: '',
