@@ -10,7 +10,7 @@ const SellerOrder = () => {
         // Fetch orders for the current seller
         const token = localStorage.getItem('token');
         if (token) {
-            axios.get('http://localhost:8000/api/v1/seller/orders/', {
+            axios.get('seller/orders/', {
                 headers: {
                     Authorization: `Token ${token}`
                 }
