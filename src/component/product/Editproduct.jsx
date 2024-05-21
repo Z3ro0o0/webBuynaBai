@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import './EditProduct.css'; // Assuming you have a CSS file for styles
+import './EditProduct.css';
+import http from '../../utils/fetchFromApi';
 
 function ProductDetails() {
     const { id } = useParams();
@@ -14,7 +15,7 @@ function ProductDetails() {
     const [newStockLarge, setNewStockLarge] = useState('');
 
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8000/api/v1/products/${id}/`)
+        axios.get(`products/${id}/`)
             .then(response => {
                 setProduct(response.data);
             })
@@ -24,7 +25,7 @@ function ProductDetails() {
     }, [id]);
 
     const handlePatch = () => {
-        axios.patch(`http://127.0.0.1:8000/api/v1/products/${id}/`, {
+        http.patch(`products/${id}/`, {
             product_name: newName,
             description: newDescription,
             price: newPrice,

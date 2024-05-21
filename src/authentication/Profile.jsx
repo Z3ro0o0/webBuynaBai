@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import http from '../utils/fetchFromApi';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Profile() {
@@ -11,6 +12,8 @@ export default function Profile() {
     const [userData, setUserData] = useState(null);
     const [newUsername, setNewUsername] = useState('');
     const [error, setError] = useState('');
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (token) {
@@ -50,10 +53,8 @@ export default function Profile() {
     };
 
     const handleLogout = () => {
-        // Remove token from local storage on logout
         localStorage.removeItem('token');
-        // Redirect to login page after logout
-        window.location.href = '/login';
+        navigate('/login');
     };
 
     return (

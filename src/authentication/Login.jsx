@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './Login.css'; // Import the CSS file for styling
 import http from '../utils/fetchFromApi';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+
+    const navigate = useNavigate();
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -17,8 +20,7 @@ export default function Login() {
                 password
             });
             localStorage.setItem('token', response.data.auth_token);
-            // Redirect to profile page or handle success as needed
-            window.location.href = '/explore/all';
+            navigate('/explore'); // Use navigate function to redirect
         } catch (error) {
             setError('Invalid email or password');
         }
