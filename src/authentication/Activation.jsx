@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import http from '../utils/fetchFromApi';
 
 const ActivationPage = () => {
     const [uid, setUid] = useState('');
@@ -9,7 +10,7 @@ const ActivationPage = () => {
     const handleActivation = async () => {
         try {
 
-            const response = await axios.post('http://127.0.0.1:8000/api/v1/auth/users/activation/', {
+            const response = await http.post('auth/users/activation/', {
                 uid,
                 token
             });
