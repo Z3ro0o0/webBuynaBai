@@ -20,6 +20,9 @@ function HomeInfo() {
       <button className="explore-clothing_btn">
         <Link to="/login">Login</Link>
       </button>
+      <button className="explore-clothing_btn">
+        <Link to="/register">Register</Link>
+      </button>
     </article>
   );
 }
