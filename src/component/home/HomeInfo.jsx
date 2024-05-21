@@ -23,6 +23,9 @@ function HomeInfo() {
       <button className="explore-clothing_btn">
         <Link to="/register">Register</Link>
       </button>
+      <button className="explore-clothing_btn">
+        <Link to="/activation">Activate</Link>
+      </button>
     </article>
   );
 }
