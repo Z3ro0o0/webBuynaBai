@@ -24,6 +24,7 @@ import Review from "./component/review/Review";
 import Editproduct from "./component/product/Editproduct";
 import Chatbot from "./component/chatbot/Chatbot";
 import SellerOrder from "./component/product/SellerOrders";
+import ActivationPage from "./authentication/Activation";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -40,6 +41,7 @@ const router = createBrowserRouter(
       <Route path="/editproduct/:id" element={<Editproduct />}></Route>
       <Route path="/chatbot" element={<Chatbot />}></Route>
       <Route path="/sellerorders" element={<SellerOrder />}></Route>
+      <Route path="/activation" element={<ActivationPage />}></Route>
     </Route>
   )
 );
