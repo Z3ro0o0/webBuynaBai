@@ -10,7 +10,7 @@ const UserProductsPage = () => {
     const fetchProducts = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await http.get('user/products/', {
+        const response = await http.get('https://buynabais.onrender.com/api/v1/user/products/', {
           headers: {
             Authorization: `Token ${token}`,
           },
