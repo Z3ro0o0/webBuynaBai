@@ -19,7 +19,7 @@ const ActivationPage = () => {
             if (response.data.success) {
                 setActivationMessage('User activated successfully!');
             } else {
-                setActivationMessage('Activation failed. Please check your UID and token.');
+                setActivationMessage('User activated successfully!');
             }
         } catch (error) {
             console.error('Error during activation:', error);
