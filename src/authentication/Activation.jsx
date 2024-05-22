@@ -30,18 +30,7 @@ const ActivationPage = () => {
     return (
         <div>
             <h1>User Activation</h1>
-            <input
-                type="text"
-                placeholder="UID"
-                value={uid}
-                onChange={(e) => setUid(e.target.value)}
-            />
-            <input
-                type="text"
-                placeholder="Token"
-                value={token}
-                onChange={(e) => setToken(e.target.value)}
-            />
+
             <button onClick={handleActivation}>Activate User</button>
             <p>{activationMessage}</p>
         </div>
